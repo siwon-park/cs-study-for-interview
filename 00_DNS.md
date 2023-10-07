@@ -71,6 +71,10 @@ ICANN이 직접 관리하는 DNS 서버로, TLD DNS 서버의 IP 주소들을 �
 
 계층별로 DNS 서버를 따라가다가 Authoritative DNS 서버에서 최종적으로 찾고자 하는 IP주소를 찾는 것임
 
+### 1) Recursive Query
+
+Recursive DNS 서버가 여러 DNS 서버를 차례대로 질의를 통해 요청한 도메인의 IP 주소를 찾아가는 과정
+
 ![image](https://github.com/siwon-park/cs-study-for-interview/assets/93081720/b21aaa65-8f89-4692-a1ff-ae4e1cf61c01)
 
 1. 브라우저에서 www.AOO.com을 검색하고, 사용하고 있는 ISP의 DNS 서버에 도메인 주소에 해당하는 IP 주소를 요청함.
