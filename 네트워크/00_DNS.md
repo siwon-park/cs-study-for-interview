@@ -71,7 +71,20 @@ ICANN이 직접 관리하는 DNS 서버로, TLD DNS 서버의 IP 주소들을 �
 
 계층별로 DNS 서버를 따라가다가 Authoritative DNS 서버에서 최종적으로 찾고자 하는 IP주소를 찾는 것임
 
-### 1) Recursive Query
+### 1) 도메인 계층 구조
+
+도메인을 표기할 때는 가장 낮은 단계부터 작성하여 최상위 도메인이 가장 뒤에 표현된다.
+
+※ URL의 뒤에서부터 체크하는 것이 핵심!
+
+- www.google.com이 있을 때 → 루트(.) 확인 → .com확인(Top-Level) → google 확인(Second-Level) → www 확인(sub 또는 host)
+- 루트 → 탑 레벨 → 세컨드 레벨 → 서브
+
+![image](https://github.com/siwon-park/cs-study-for-interview/assets/93081720/dfea86f2-a972-40e0-a5b7-4bb1ff534492)
+
+![image](https://github.com/siwon-park/cs-study-for-interview/assets/93081720/63cd6b94-7088-469e-9938-3b7cc44aa6dd)
+
+### 2) Recursive Query
 
 Recursive DNS 서버가 여러 DNS 서버를 차례대로 질의를 통해 요청한 도메인의 IP 주소를 찾아가는 과정
 
