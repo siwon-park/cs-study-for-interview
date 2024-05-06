@@ -89,7 +89,15 @@ Real DOM과 Virtual DOM의 관계는 다음과 같이 비유할 수 있다.
 
 Virtual DOM이 바로 리액트(React)가 동작하는 핵심 과정 중 하나이며, 비교를 통한 DOM 조작 과정은 `Diffing 알고리즘`을 통해 이뤄진다.
 
-#### (1) Diffing 알고리즘
+### 1) Virtual DOM이 효율적인 이유?
+
+- Real DOM에 대한 조작은 실제 DOM 객체를 전부 다 교체 후 다시 렌더링 해야하기 때문에 비용이 비싸다. 그러나 Virtual DOM의 경우 메모리에만 존재하기 때문에 보다 빠르게 접근해서 필요한 부분만 수정이 가능하다.
+  - 가상 DOM은 실제 렌더링이 되지 않기 때문에 연산 비용이 저렴함.
+- 또한 Virtual DOM은 Javascript 객체로 표현되어 있어서 Real DOM에 비해 훨씬 가볍고, 수정이 쉽다.
+
+<br>
+
+### 2) Diffing 알고리즘
 
 > 재조정(Reconciliation)
 
