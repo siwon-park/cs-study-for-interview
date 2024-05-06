@@ -39,6 +39,20 @@ WebRTC란 웹 브라우저 간에 소프트웨어나 플러그인의 도움 없�
 
 <br>
 
+### 3) vs. 웹 소켓 방식
+
+P2P로 브라우저 간 HTTP로 소통하는 것이 아니라 웹 소켓 서버를 통해서 데이터를 주고 받는 방법도 있다.
+
+3-way Handshake 과정을 거쳐서 통신을 맺고, 양방향 소통이 가능하다는 특징이 있음.
+
+그러나 웹 소켓 방식은 서버의 중요성이 커진다는 단점이 존재한다.
+
+실시간 소통이 중요하기 때문에 메모리와 같은 서버의 성능이 매우 중요하며, 요청을 받으면 응답을 리턴하면 끝인 HTTP 방식과 달리 응답에 대한 수신 또한 중요함.
+
+따라서 성능을 해결하지 못하면 사용자 경험이 현저히 떨어지기 때문에 web RTC를 사용하는 것이다.
+
+<br>
+
 ## 2. Web RTC 통신 과정
 
 ![image](https://github.com/siwon-park/cs-study-for-interview/assets/93081720/8b5eb0da-8c49-4618-9086-7740a5910ff6)
@@ -67,6 +81,8 @@ Web RTC 통신을 위해서는 `시그널링(Signaling)`이라는 과정을 통�
 ### 2) 시그널링 중계 서버(STUN/TURN 서버)
 
 Web RTC 통신을 위해 시그널링이라는 과정이 필요하다고 했다. 이 시그널링을 도와주는 중계 서버를 시그널링 서버라고 하며, `STUN/TURN` 서버에 의해 이뤄진다.
+
+![140601803-7afaa474-3a8f-4026-b9f7-34d08ffef80f](https://github.com/siwon-park/cs-study-for-interview/assets/93081720/ad29ef6b-dc1f-4fca-8bdd-52698265ff50)
 
 #### (1) 중계 서버의 필요성(NAT Traversal)
 
