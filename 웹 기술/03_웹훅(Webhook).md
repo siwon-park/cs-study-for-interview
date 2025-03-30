@@ -4,7 +4,7 @@
 
 ## 1. API와 Webhook
 
-![image](https://github.com/user-attachments/assets/7b1bf239-fb1d-4f3b-b51a-b9264f992bb4)
+![image](https://github.com/user-attachments/assets/0178f30e-6386-457c-9cfc-78a75d1df561)
 
 ### 1) API
 
@@ -19,6 +19,8 @@
 반면에 웹훅은 특정 이벤트가 발생했을 때 서버가 미리 정의된 클라이언트의 URL로 반대로 요청을 보내는 역방향 API 방식을 말한다.
 
 webhook은 api에 비해 실시간 통신이 필요하거나 이벤트 기반의 작업이 필요할 때 더 적합한 방식이다.
+
+webhook은 비동기 처리 방식과는 거리가 있다. 일반적인 비동기 api 방식도 클라이언트가 요청을 보내는데, webhook은 아예 요청 방향이 반대이기 때문에 유의할 것.
 
 <br>
 
