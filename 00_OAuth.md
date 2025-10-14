@@ -2,13 +2,13 @@
 
 > Open Authorization
 
-인터넷 사용자들이 비밀번호를 제공하지 않고 다른 웹사이트 상의 자신들의 정보에 대해 웹사이트나 애플리케이션의 접근 권한을 부여할 수 있는 공통적인 수단으로서 사용되는, 접근 위임을 위한 개방형 표준이다.
+인터넷 사용자들이 비밀번호를 제공하지 않고 다른 웹사이트나 어플리케이션의 자신의 정보에 대해 접근 권한을 부여할 수 있는 공통적인 수단으로서 사용되는, 접근 위임을 위한 개방형 표준이다.
 
-OAuth의 Auth가 `인가(Authorization)`임을 유의!
+OAuth의 Auth가 `인가(Authorization)`임을 유의하자. (그래서 "접근 위임"을 위한 표준인 것이다.)
 
-- 요청한 사용자가 `권한`이 있는 사용자인지 확인하는 것임
-- 이는 OAuth의 목표가 다른 어플리케이션이나 서비스에 접근할 수 있도록 사용자에게 권한을 부여하는 것이기 때문
-- 그렇다고 해서 `올바른 사용자`인지 확인하는 `인증(Authentication)` 과정이 없다고만 볼 수는 없기 때문에 OAuth를 "인증 방식"이라고 부르는 것임
+- 인가는 요청한 사용자가 `권한`이 있는 사용자인지 확인하는 것
+- OAuth의 목표는 다른 어플리케이션이나 서비스에 접근할 수 있도록 사용자에게 권한을 부여하는 것
+- 단, 이러한 과정이 `올바른 사용자`인지 확인하는 `인증(Authentication)` 과정이 없다고만 볼 수는 없기 때문에 OAuth를 "인증 방식"이라고 부르는 것임
 
 <br>
 
@@ -39,7 +39,7 @@ OAuth의 등장으로 인해 OAuth 인증 방식을 이용하는 어플리케이
 
 따라서 어플리케이션의 통합 사용이 가능한 시대가 열린 것이다.
 
-#### OAuth 1.0
+#### (1) OAuth 1.0
 
 트위터(Twitter)의 주도 하에 OAuth 1.0이 탄생함.
 
@@ -63,39 +63,37 @@ OAuth의 등장으로 인해 OAuth 인증 방식을 이용하는 어플리케이
 
 <br>
 
-### 2) OAuth 2.0 용어
+### 2) OAuth 2.0 주요 구성 요소
 
 OAuth 주체와 관련 용어
 
-#### Resource Owner
+#### (1) Resource Owner
 
-사용자(리소스 사용자)로, 해당 서비스나 어플리케이션을 이용하면서 구글, 페이스북, 트위터 등의 플랫폼에서 리소스를 보유하고 있는 사용자이다.
+서비스 사용자(리소스 사용자)로, 해당 서비스나 어플리케이션을 이용하면서 구글, 페이스북, 트위터 등의 플랫폼에서 리소스(개인 정보 데이터)를 보유하고 있는 사용자이다.
 
-흔히 서비스 사용자라고 생각하면 편하다.
+#### (2) Client
 
-#### Client
+서비스 사용자(Resource Owner)의 자원을 이용하고자 하는 서비스(Client)로 보통 웹 서비스, 어플리케이션 등을 의미한다. 
 
-Resource Serve의 자원(Resource)를 이용하고자 하는 서비스로, 보통 (우리의) 서비스나 어플리케이션을 의미한다. 
+#### (3) Authorization Server
 
-#### Authorization Server
+서비스 사용자(Resource Owner)를 인증하고 서비스(Client)에게 엑세스 토큰(Access Token)을 발급해주는 서버
 
-Resource Owner를 인증하고 Client에게 Access Token을 발급해주는 서버
+#### (4) Resource Server
 
-#### Resource Server
+구글, 페이스북, 트위터, 네이버, 카카오와 같이 개인 정보 데이터, 자원(Resource)를 가지고 있는 서버, 플랫폼을 말한다.
 
-구글, 페이스북, 트위터, 네이버, 카카오와 같이 자원(Resource)를 가지고 있는 서버를 말한다.
+#### (5) Redirect URI
 
-#### Redirect URI
+인가가 허용된 사용자가 이동할 자원의 식별자(URI), 즉 이동할 곳을 의미.
 
 OAuth 2.0 서비스는 인증이 성공한 사용자를 사전에 등록된 Redirect URI로만 리다이렉트 시킨다.
 
-Redirect URI의 목적은 Authorization Code를 전달받을 주소를 미리 등록시켜놓는 것이다.
-
-만약 승인되지 않은 URI로 리다이렉트될 경우, 중간에 Authorization Code를 탈취당할 위험이 있기 때문에 사전에 승인된 URI만 허락하는 것이다.
+만약 승인되지 않은 URI로 리다이렉트될 경우, 인가 코드(Authorization Code)를 탈취하여 공격자가 사용자 계정에 접근할 수 있는 위험이 있기 때문에 사전에 승인된 URI만 허락하는 것이다.
 
 기본적으로 Redirect URI는 보안을 위해 https만 허용되지만 localhost는 http가 허용된다.
 
-#### Client ID, Client Secret
+#### (6) Client ID, Client Secret
 
 Client ID와 Client Secret은 Access Token을 획득하는데 사용된다.
 
